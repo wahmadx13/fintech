@@ -6,12 +6,13 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
   Platform,
+  Alert,
 } from "react-native";
 import React, { useState } from "react";
 import { defaultStyles } from "@/constants/Styles";
 import Colors from "@/constants/Colors";
 import { Link, useRouter } from "expo-router";
-import { useSignUp } from "@clerk/clerk-expo";
+import { isClerkAPIResponseError, useSignUp } from "@clerk/clerk-expo";
 
 const Page = () => {
   const [countryCode, setCountryCode] = useState<string>("+92");
@@ -25,21 +26,21 @@ const Page = () => {
 
   const onSignup = async () => {
     const fullPhoneNumber = `${countryCode}${phoneNumber}`;
-    router.push({
-      pathname: "/verify/[phone]",
-      params: { phone: fullPhoneNumber },
-    });
-    // try {
-    //   await signUp!.create({
-    //     phoneNumber: fullPhoneNumber,
-    //   });
-    //   router.push({
-    //     pathname: "/verify/[phone]",
-    //     params: { phone: fullPhoneNumber },
-    //   });
-    // } catch (err) {
-    //   console.log("Error signing up", err);
-    // }
+    try {
+      await signUp!.create({
+        phoneNumber: fullPhoneNumber,
+      });
+      signUp!.preparePhoneNumberVerification();
+      router.push({
+        pathname: "/verify/[phone]",
+        params: { phone: fullPhoneNumber },
+      });
+    } catch (err) {
+      console.log("Error signing up", JSON.stringify(err, null, 2));
+      if (isClerkAPIResponseError(err)) {
+        Alert.alert("Error", err.errors[0].message);
+      }
+    }
   };
 
   return (

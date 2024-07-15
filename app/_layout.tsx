@@ -1,5 +1,5 @@
 import Colors from "@/constants/Colors";
-import { ClerkProvider } from "@clerk/clerk-expo";
+import { ClerkProvider, useAuth } from "@clerk/clerk-expo";
 import { Ionicons } from "@expo/vector-icons";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
@@ -49,6 +49,8 @@ const InitialLayout = () => {
 
   const router = useRouter();
 
+  const { isLoaded, isSignedIn } = useAuth();
+
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
     if (error) throw error;
@@ -59,6 +61,10 @@ const InitialLayout = () => {
       SplashScreen.hideAsync();
     }
   }, [loaded]);
+
+  useEffect(() => {
+    console.log("IsSignedIn", isSignedIn);
+  }, [isSignedIn]);
 
   if (!loaded) {
     return null;
