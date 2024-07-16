@@ -3,7 +3,7 @@ import RoundButton from "./RoundButton";
 import React, { useState } from "react";
 
 import { Text, TouchableOpacity, StyleSheet } from "react-native";
-import { Menu, MenuItem } from "react-native-material-menu";
+import { Menu, MenuDivider, MenuItem } from "react-native-material-menu";
 
 const Dropdown = () => {
   const [visible, setVisible] = useState(false);
@@ -30,24 +30,28 @@ const Dropdown = () => {
           <Text>Statement </Text>
         </TouchableOpacity>
       </MenuItem>
+      <MenuDivider />
       <MenuItem onPress={hideMenu}>
         <TouchableOpacity style={styles.menuItem}>
           <Ionicons name="arrow-undo-circle-outline" size={24} />
           <Text>Converter </Text>
         </TouchableOpacity>
       </MenuItem>
+      <MenuDivider />
       <MenuItem onPress={hideMenu}>
         <TouchableOpacity style={styles.menuItem}>
           <Ionicons name="image" size={24} />
           <Text>Background </Text>
         </TouchableOpacity>
       </MenuItem>
+      <MenuDivider />
       <MenuItem onPress={hideMenu}>
         <TouchableOpacity style={styles.menuItem}>
           <Ionicons name="add-circle-outline" size={24} />
           <Text>Add a new account </Text>
         </TouchableOpacity>
       </MenuItem>
+      <MenuDivider />
     </Menu>
   );
 };
