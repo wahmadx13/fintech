@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { zustandStorage } from "./mmkv-storage";
+import { zustandStorage } from "./secure-storage";
 
 export interface Transaction {
     id: string;
