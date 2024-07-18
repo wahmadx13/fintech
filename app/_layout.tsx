@@ -158,6 +158,7 @@ const InitialLayout = () => {
           headerShown: false,
         }}
       />
+
       <Stack.Screen
         name="(authenticated)/crypto/[id]"
         options={{
