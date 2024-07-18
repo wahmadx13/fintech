@@ -13,7 +13,6 @@ const CustomHeader = () => {
       intensity={100}
       tint={"extraLight"}
       style={{
-        flex: 1,
         paddingTop: top,
         backgroundColor: "rgba(0,0,0,0.05)",
       }}
