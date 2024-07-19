@@ -4,6 +4,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { BlurView } from "expo-blur";
+import { Link } from "expo-router";
 
 const CustomHeader = () => {
   const { top } = useSafeAreaInsets();
@@ -28,20 +29,22 @@ const CustomHeader = () => {
           },
         ]}
       >
-        <TouchableOpacity
-          style={{
-            width: 40,
-            height: 40,
-            borderRadius: 20,
-            backgroundColor: Colors.gray,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Text style={{ color: "#fff", fontWeight: "500", fontSize: 16 }}>
-            WA
-          </Text>
-        </TouchableOpacity>
+        <Link href="/(authenticated)/(modals)/account" asChild>
+          <TouchableOpacity
+            style={{
+              width: 40,
+              height: 40,
+              borderRadius: 20,
+              backgroundColor: Colors.gray,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ color: "#fff", fontWeight: "500", fontSize: 16 }}>
+              WA
+            </Text>
+          </TouchableOpacity>
+        </Link>
         <View style={styles.searchSection}>
           <Ionicons
             style={styles.searchIcon}
