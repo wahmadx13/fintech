@@ -1,13 +1,12 @@
 import { View, Text, ScrollView, StyleSheet } from "react-native";
-import React from "react";
-import Colors from "@/constants/Colors";
+import { Ionicons } from "@expo/vector-icons";
+import { useHeaderHeight } from "@react-navigation/elements";
 import RoundButton from "@/components/RoundButton";
 import Dropdown from "@/components/Dropdown";
-import { useBalanceStore } from "@/store/balanceStore";
-import { defaultStyles } from "@/constants/Styles";
-import { Ionicons } from "@expo/vector-icons";
 import WidgetList from "@/components/SortableList/WidgetList";
-import { useHeaderHeight } from "@react-navigation/elements";
+import { defaultStyles } from "@/constants/Styles";
+import { useBalanceStore } from "@/store/balanceStore";
+import Colors from "@/constants/Colors";
 
 const Page = () => {
   const { balance, runTransaction, transactions, clearTransactions } =
