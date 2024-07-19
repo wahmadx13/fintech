@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -8,12 +9,11 @@ import {
   Platform,
   Alert,
 } from "react-native";
-import React, { useState } from "react";
-import { defaultStyles } from "@/constants/Styles";
-import Colors from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { isClerkAPIResponseError, useSignIn } from "@clerk/clerk-expo";
+import { defaultStyles } from "@/constants/Styles";
+import Colors from "@/constants/Colors";
 
 enum SignInType {
   Phone,

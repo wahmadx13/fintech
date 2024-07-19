@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -8,11 +9,10 @@ import {
   Platform,
   Alert,
 } from "react-native";
-import React, { useState } from "react";
-import { defaultStyles } from "@/constants/Styles";
-import Colors from "@/constants/Colors";
 import { Link, useRouter } from "expo-router";
 import { isClerkAPIResponseError, useSignUp } from "@clerk/clerk-expo";
+import { defaultStyles } from "@/constants/Styles";
+import Colors from "@/constants/Colors";
 
 const Page = () => {
   const [countryCode, setCountryCode] = useState<string>("+92");

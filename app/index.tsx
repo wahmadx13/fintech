@@ -1,9 +1,9 @@
-import Colors from "@/constants/Colors";
-import { defaultStyles } from "@/constants/Styles";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { useAssets } from "expo-asset";
 import { Video, ResizeMode } from "expo-av";
 import { Link } from "expo-router";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import Colors from "@/constants/Colors";
+import { defaultStyles } from "@/constants/Styles";
 
 const Page = () => {
   const [assets] = useAssets([require("@/assets/videos/intro.mp4")]);
