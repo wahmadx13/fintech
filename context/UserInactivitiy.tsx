@@ -1,7 +1,7 @@
-import { useAuth } from "@clerk/clerk-expo";
-import { useRouter } from "expo-router";
 import { useEffect, useRef } from "react";
 import { AppState, AppStateStatus } from "react-native";
+import { useRouter } from "expo-router";
+import { useAuth } from "@clerk/clerk-expo";
 import * as SecureStore from "expo-secure-store";
 
 export const UserInactivityProvider = ({ children }: any) => {
