@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Stack, useLocalSearchParams } from "expo-router";
 import {
   View,
@@ -10,11 +11,8 @@ import {
   TextInput,
 } from "react-native";
 import { useHeaderHeight } from "@react-navigation/elements";
-import { defaultStyles } from "@/constants/Styles";
-import Colors from "@/constants/Colors";
 import { useQuery } from "@tanstack/react-query";
 import { Ionicons } from "@expo/vector-icons";
-import { useEffect, useState } from "react";
 import { CartesianChart, Line, useChartPressState } from "victory-native";
 import { Circle, useFont } from "@shopify/react-native-skia";
 import { format } from "date-fns";
@@ -23,6 +21,8 @@ import Animated, {
   SharedValue,
   useAnimatedProps,
 } from "react-native-reanimated";
+import Colors from "@/constants/Colors";
+import { defaultStyles } from "@/constants/Styles";
 
 Animated.addWhitelistedNativeProps({ text: true });
 const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
