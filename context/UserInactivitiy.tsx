@@ -1,10 +1,14 @@
-import { useEffect, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import { AppState, AppStateStatus } from "react-native";
 import { useRouter } from "expo-router";
 import { useAuth } from "@clerk/clerk-expo";
 import * as SecureStore from "expo-secure-store";
 
-export const UserInactivityProvider = ({ children }: any) => {
+export const UserInactivityProvider = ({
+  children,
+}: {
+  children: ReactNode;
+}) => {
   const appState = useRef(AppState.currentState);
   const router = useRouter();
   const { isSignedIn } = useAuth();
