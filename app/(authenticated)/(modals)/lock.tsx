@@ -1,10 +1,9 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { useRouter } from "expo-router";
 import { useUser } from "@clerk/clerk-expo";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Colors from "@/constants/Colors";
 import * as Haptics from "expo-haptics";
-import { useRouter } from "expo-router";
 import * as LocalAuthentication from "expo-local-authentication";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Animated, {
@@ -14,7 +13,7 @@ import Animated, {
   withSequence,
   withTiming,
 } from "react-native-reanimated";
-import { transform } from "@babel/core";
+import Colors from "@/constants/Colors";
 
 const codeLength = Array(6).fill(0);
 const OFFSET = 20;

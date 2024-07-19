@@ -9,9 +9,9 @@ import {
   TextInput,
 } from "react-native";
 import { BlurView } from "expo-blur";
-import Colors from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
+import Colors from "@/constants/Colors";
 
 const ICONS = [
   {
