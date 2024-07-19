@@ -10,32 +10,38 @@ export const UserInactivityProvider = ({ children }: any) => {
   const { isSignedIn } = useAuth();
 
   useEffect(() => {
+    const handleAppStateChange = async (nextAppState: AppStateStatus) => {
+      if (appState.current.match(/background/) && nextAppState === "active") {
+        const timElapsed =
+          Date.now() -
+          parseInt((await SecureStore.getItemAsync("startTime")) ?? "0", 10);
+        if (timElapsed > 3000 && isSignedIn) {
+          router.replace("/(authenticated)/(modals)/lock");
+        }
+      } else if (nextAppState === "background") {
+        recordStartTime();
+      }
+      appState.current = nextAppState;
+    };
+
+    const recordStartTime = () => {
+      SecureStore.setItemAsync("startTime", Date.now().toString());
+    };
+
     const subscription = AppState.addEventListener(
       "change",
       handleAppStateChange
     );
 
+    appState.current = AppState.currentState;
+    if (appState.current === "background") {
+      recordStartTime();
+    }
+
     return () => {
       subscription.remove();
     };
-  }, []);
+  }, [isSignedIn, router]);
 
-  const handleAppStateChange = async (nextAppState: AppStateStatus) => {
-    if (appState.current.match(/background/) && nextAppState === "active") {
-      const timElapsed =
-        Date.now() -
-        parseInt((await SecureStore.getItemAsync("startTime")) ?? "0", 10);
-      if (timElapsed > 3000 && isSignedIn) {
-        router.replace("/(authenticated)/(modals)/lock");
-      }
-    } else if (nextAppState === "background") {
-      recordStartTime();
-    }
-    appState.current = nextAppState;
-  };
-
-  const recordStartTime = () => {
-    SecureStore.setItemAsync("startTime", Date.now().toString());
-  };
   return children;
 };
