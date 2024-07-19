@@ -1,5 +1,5 @@
 import { useAuth, useUser } from "@clerk/clerk-expo";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   View,
   Text,
@@ -31,11 +31,14 @@ const ICONS = [
 const Page = () => {
   const { user } = useUser();
   const { signOut } = useAuth();
-  const [firstName, setFirstName] = useState(user?.firstName);
-  const [lastName, setLastName] = useState(user?.lastName);
-  const [edit, setEdit] = useState(false);
-
-  const [activeIcon, setActiveIcon] = useState("Default");
+  const [firstName, setFirstName] = useState<string | null | undefined>(
+    user?.firstName
+  );
+  const [lastName, setLastName] = useState<string | null | undefined>(
+    user?.lastName
+  );
+  const [edit, setEdit] = useState<boolean>(false);
+  const [activeIcon, setActiveIcon] = useState<string>("Default");
 
   const onSaveUser = async () => {
     try {

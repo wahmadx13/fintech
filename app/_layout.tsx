@@ -201,7 +201,7 @@ const InitialLayout = () => {
         name="(authenticated)/(modals)/account"
         options={{
           presentation: "transparentModal",
-          animation: "fade",
+          animation: "slide_from_bottom",
           title: "",
           headerTransparent: true,
           headerLeft: () => (

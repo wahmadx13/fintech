@@ -22,7 +22,9 @@ const TIME = 80;
 
 const Page = () => {
   const { user } = useUser();
-  const [firstName, setFirstName] = useState(user?.firstName);
+  const [firstName, setFirstName] = useState<string | null | undefined>(
+    user?.firstName
+  );
   const [code, setCode] = useState<number[]>([]);
 
   const router = useRouter();
