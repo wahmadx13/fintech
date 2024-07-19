@@ -1,9 +1,8 @@
-import { Ionicons } from "@expo/vector-icons";
-import RoundButton from "./RoundButton";
 import React, { useState } from "react";
-
 import { Text, TouchableOpacity, StyleSheet } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import { Menu, MenuDivider, MenuItem } from "react-native-material-menu";
+import RoundButton from "./RoundButton";
 
 const Dropdown = () => {
   const [visible, setVisible] = useState(false);

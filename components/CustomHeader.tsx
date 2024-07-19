@@ -1,10 +1,10 @@
-import Colors from "@/constants/Colors";
-import { Ionicons } from "@expo/vector-icons";
 import { View, Text, StyleSheet } from "react-native";
+import { Link } from "expo-router";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { BlurView } from "expo-blur";
-import { Link } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+import Colors from "@/constants/Colors";
 
 const CustomHeader = () => {
   const { top } = useSafeAreaInsets();

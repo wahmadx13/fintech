@@ -1,6 +1,6 @@
-import Colors from "@/constants/Colors";
-import { Ionicons } from "@expo/vector-icons";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import Colors from "@/constants/Colors";
 
 type RoundButtonProps = {
   text: string;

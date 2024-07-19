@@ -1,9 +1,7 @@
-import React from "react";
-
+import { View } from "react-native";
 import { MARGIN } from "./Config";
 import Tile from "./Tile";
 import SortableList from "./SortableList";
-import { View } from "react-native";
 
 const tiles = [
   {
