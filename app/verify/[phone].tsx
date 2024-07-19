@@ -1,19 +1,19 @@
-import Colors from "@/constants/Colors";
-import { defaultStyles } from "@/constants/Styles";
+import { useEffect, useState, Fragment } from "react";
+import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
 import {
   isClerkAPIResponseError,
   useSignIn,
   useSignUp,
 } from "@clerk/clerk-expo";
 import { Link, useLocalSearchParams } from "expo-router";
-import { useEffect, useState, Fragment } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
 import {
   CodeField,
   Cursor,
   useBlurOnFulfill,
   useClearByFocusCell,
 } from "react-native-confirmation-code-field";
+import Colors from "@/constants/Colors";
+import { defaultStyles } from "@/constants/Styles";
 
 const CELL_COUNT = 6;
 
